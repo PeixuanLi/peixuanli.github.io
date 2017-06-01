@@ -249,7 +249,430 @@
   
   
 
-  <article class="post post-type-interview " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/01/SurroundedRegions/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Peixuan Li">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Peixuan的面试刷题笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/01/SurroundedRegions/" itemprop="url">Surrounded Regions 解题报告</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-01T07:35:31-05:00">
+                2017-06-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/interview/" itemprop="url" rel="index">
+                    <span itemprop="name">interview</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem"><a href="#Problem" class="headerlink" title="[Problem]"></a>[Problem]</h2><blockquote>
+<p>Given a 2D board containing ‘X’ and ‘O’, capture all regions surrounded by ‘X’.<br>A region is captured by flipping all ‘O’’s into ‘X’’s in that surrounded region.</p>
+</blockquote>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><table>
+<thead>
+<tr>
+<th>问题</th>
+<th>理解与解答</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>概括</strong></td>
+<td>找出了边界相关以外的区域并填充.</td>
+</tr>
+<tr>
+<td><strong>思路</strong></td>
+<td>遍历边界,通过递归的方式找到边界相关区域并标记,整体遍历填充其他区域并将标记取消.</td>
+</tr>
+<tr>
+<td><strong>提示</strong></td>
+<td>开始时只想到遍历边界并将判断方法提出来,后来发现这个方法就是递归判断.</td>
+</tr>
+<tr>
+<td><strong>复杂度</strong></td>
+<td>O(n*m): O(1) – 直接修改目标数组:</td>
+</tr>
+</tbody>
+</table>
+<p><strong>类似题目</strong> :<br>Number of Islands, Number of Islands II</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h2><ul>
+<li></li>
+<li></li>
+</ul>
+<p>/** java<br>Surrounded Regions</p>
+<p>Given a 2D board containing ‘X’ and ‘O’, capture all regions surrounded by ‘X’.</p>
+<p>A region is captured by flipping all ‘O’’s into ‘X’’s in that surrounded region.</p>
+<p>分析:<br>一句话概括这个题要你干嘛:<br>  找出了边界相关以外的区域并填充.<br>思路:<br>  遍历边界,通过递归的方式找到边界相关区域并标记,整体遍历填充其他区域并将标记取消.<br>有哪些条件提示我想到了这个题的解法:<br>  开始时只想到遍历边界并将判断方法提出来,后来发现这个方法就是递归判断.<br>时间复杂度: O(n*m):，<br>空间复杂度: O(1) – 直接修改目标数组:<br>有哪些我做过的题目:<br>  Number of Islands, Number of Islands II</p>
+<p><em>/<br>public class Solution {<br>    /*</em></p>
+<pre><code> * @param board a 2D board containing &apos;X&apos; and &apos;O&apos;
+ * @return void
+ */
+int m;
+int n;
+int[] dx = {1,-1,0,0};
+int[] dy = {0,0,1,-1};
+public void surroundedRegions(char[][] board) {
+    if(board == null || board.length &lt;= 2 || board[0].length &lt;= 2){
+        return;
+    }
+
+    m = board.length;
+    n = board[0].length;
+    for(int i = 0; i &lt; m; i++){
+        change(board,0,i);
+        change(board,m-1,i);
+        change(board,i,0);
+        change(board,i,n-1);
+    }
+     for(int i = 0; i &lt; m; i++){
+          for(int j = 0; j &lt; n; j++){
+              if(board[i][j] == &apos;O&apos;){
+                  board[i][j] = &apos;X&apos;;
+              }else if(board[i][j] == &apos;Y&apos;){
+                  board[i][j] = &apos;O&apos;;
+              }
+          }
+     }
+}
+void change(char[][] board,int x,int y){
+    if(x &lt; 0 || x &gt; m-1 || y &lt; 0 || y &gt; n-1){
+        return;
+    }
+    if(board[x][y] == &apos;O&apos;){
+        board[x][y] =&apos;Y&apos;;
+        for(int i = 0; i &lt; 4; i++){
+            change(board,x+dx[i],y+dy[i]);
+        }
+    }
+}
+</code></pre><p>}</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/31/website_analysis_0531/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Peixuan Li">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Peixuan的面试刷题笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/31/website_analysis_0531/" itemprop="url">搭建一个基于wordpress的房产网站.</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-31T23:40:11-05:00">
+                2017-05-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/interview/" itemprop="url" rel="index">
+                    <span itemprop="name">interview</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="搭建基于wordpress的房产网站"><a href="#搭建基于wordpress的房产网站" class="headerlink" title="搭建基于wordpress的房产网站."></a>搭建基于wordpress的房产网站.</h1><h2 id="类似网站分析"><a href="#类似网站分析" class="headerlink" title="类似网站分析"></a>类似网站分析</h2><p><a href="http://www.beimeigoufang.com" target="_blank" rel="external">beimeigoufang</a>是一个有5年开发历史的网站, 经历过1次较大改版和多次小的版面调整. 改版时加入了分类与搜索.<br>最新版本:</p>
+<table>
+<thead>
+<tr>
+<th>全球排名</th>
+<th>访客排名</th>
+<th>国家/地区</th>
+<th>国家/地区排名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>255330</td>
+<td>268050</td>
+<td>CN</td>
+<td>47052</td>
+</tr>
+</tbody>
+</table>
+<p>Frameworks: asp.net</p>
+<h2 id="Web-Server-IIS"><a href="#Web-Server-IIS" class="headerlink" title="Web Server: IIS"></a>Web Server: IIS</h2><h2 id="待分析网站目录与内容结构"><a href="#待分析网站目录与内容结构" class="headerlink" title="待分析网站目录与内容结构:"></a>待分析网站目录与内容结构:</h2><h4 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h4><p>主页</p>
+<ul>
+<li>房产相关<br>⋅⋅<em> 最新房源<br>⋅⋅</em> 商业地产<br>⋅⋅* 新楼盘</li>
+<li>资讯<br>⋅⋅* 北美资讯</li>
+<li>常见问题</li>
+<li>用户登录<br>⋅⋅<em> 我的信息<br>⋅⋅</em> 我的顾问<br>⋅⋅<em> 我的收藏<br>⋅⋅</em> 我的浏览<br>⋅⋅<em> 我的投资<br>⋅⋅</em> 支付记录</li>
+<li>经纪登录<br>⋅⋅<em> 发布房源<br>⋅⋅</em> 修改房源<br>⋅⋅<em> 客户留言<br>⋅⋅</em> ???</li>
+</ul>
+<p>底部目录</p>
+<ul>
+<li>关于我们</li>
+<li>联系方式</li>
+<li>经纪人注册</li>
+<li>加入我们</li>
+<li>常见问题 X</li>
+<li>官方微博</li>
+<li>城市索引: site map</li>
+<li>商务合作 </li>
+<li><p>发布房源 X</p>
+<h4 id="房源结构"><a href="#房源结构" class="headerlink" title="房源结构:"></a>房源结构:</h4><blockquote>
+<p>不同类别可同时选择</p>
+</blockquote>
+</li>
+<li><p>地理位置(多级): 城市-区域</p>
+</li>
+<li>类型</li>
+<li>价格</li>
+<li>筛选(在结果中筛出部分条目):卧室数 浴室数 室内面积 占地面积 房龄</li>
+</ul>
+<h4 id="收费系统"><a href="#收费系统" class="headerlink" title="收费系统:"></a>收费系统:</h4><blockquote>
+<p>生成支付宝链接<br>支付记录</p>
+</blockquote>
+<h4 id="用户分组"><a href="#用户分组" class="headerlink" title="用户分组:"></a>用户分组:</h4><ul>
+<li>普通用户</li>
+<li>会员(地址可见), VIP会员(商业地址可见)</li>
+<li>经纪(能发布房源)</li>
+</ul>
+<h4 id="后台功能"><a href="#后台功能" class="headerlink" title="后台功能:"></a>后台功能:</h4><p>用户登录:<br>手机短信注册.</p>
+<p>新闻与房源<br>购房资讯: 不跳转的表单<br>房源属性: 当页跳转</p>
+<h2 id="开发规划"><a href="#开发规划" class="headerlink" title="开发规划:"></a>开发规划:</h2><p>服务器环境: LAMP/LEMP<br>语言: PHP, JavaScript, HTML, CSS<br>网站框架wordpress(人工成本低, 开发速度快, 容易更新和维护)</p>
+<p>基本开发:<br>week 1: 工作环境搭建 模板选择与测试;<br>    服务器相关选择,主题模板选择,<br>    服务器,语言,数据库及软件相关配置;<br>    domain相关配置;<br>    搭建框架与测试内容填充;</p>
+<p>week 2-3:页面开发, 插件选择与测试;<br>    网站页面开发<br>    插件配置<br>    表单模块<br>    支付模块<br>    地图相关</p>
+<p>week 4-6:内容分类, 权限分级, 表单设计<br>    网站页面开发<br>    房源结构<br>    资讯结构<br>    用户可见度<br>    注册与留言</p>
+<p>week 7-8<br>    SEO,外链,网站地图<br>    流量分析 GA or Piwik<br>    内部测试: 导入数据并调试<br>    试运营</p>
+<p>更多:</p>
+<ol>
+<li>异步查询:查询页面框架和数据加载分开.</li>
+<li>网站翻译部署</li>
+<li>数据的备份与恢复</li>
+<li>性能调优,静态化</li>
+<li>配合修改图片及页面效果</li>
+<li>短信注册登录</li>
+<li>内容分发网络CDN</li>
+<li>…</li>
+</ol>
+<h2 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h2><p>工具及介绍:<br><a href="http://archive.org/web/web.php" target="_blank" rel="external">Wayback Machine</a> : 查网站过去动态<br><a href="http://www.alexa.cn/rank/beimeigoufang.com" target="_blank" rel="external">网站排名</a><br><a href="https://website.grader.com/" target="_blank" rel="external">SEO分析</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/07/algorithmSummarize/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -291,6 +714,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/interview/" itemprop="url" rel="index">
+                    <span itemprop="name">interview</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -379,6 +824,174 @@
 <li>Merge Sort 不会影响相等情况的顺序.</li>
 </ol>
 <h2 id="动态规划要点"><a href="#动态规划要点" class="headerlink" title="动态规划要点:"></a>动态规划要点:</h2><h2 id="图要点"><a href="#图要点" class="headerlink" title="图要点:"></a>图要点:</h2><h2 id="数据结构要点"><a href="#数据结构要点" class="headerlink" title="数据结构要点:"></a>数据结构要点:</h2>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/05/CopyListwithRandomPointer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Peixuan Li">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Peixuan的面试刷题笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/05/CopyListwithRandomPointer/" itemprop="url">Copy List with Random Pointer</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-05T11:57:23-05:00">
+                2017-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/interview/" itemprop="url" rel="index">
+                    <span itemprop="name">interview</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem"><a href="#Problem" class="headerlink" title="[Problem]"></a>[Problem]</h2><blockquote>
+</blockquote>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><table>
+<thead>
+<tr>
+<th>问题</th>
+<th>理解与解答</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>概括</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>思路</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>提示</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>复杂度</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>类似题目</strong> : </p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h2><ul>
+<li></li>
+<li></li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码:"></a>代码:</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<p>[Problem]:</p>
+
           
         
       
@@ -749,7 +1362,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

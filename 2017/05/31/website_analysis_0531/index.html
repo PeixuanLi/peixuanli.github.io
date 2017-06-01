@@ -90,16 +90,16 @@
 
 
 
-<meta name="description" content="Problem Reverse a linked list from position m to n. Example:Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL, m = 2 and n = 4, return 1-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;5-&amp;gt;NULL.  Analysis   问题 理解与解答     概括 反转指定位置之间的节">
+<meta name="description" content="搭建基于wordpress的房产网站.类似网站分析beimeigoufang是一个有5年开发历史的网站, 经历过1次较大改版和多次小的版面调整. 改版时加入了分类与搜索.最新版本:    全球排名 访客排名 国家/地区 国家/地区排名     255330 268050 CN 47052    Frameworks: asp.net Web Server: IIS待分析网站目录与内容结构:目录结构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Reverse Linked List II 解题报告">
-<meta property="og:url" content="http://yoursite.com/2017/05/05/ReverseLinkedListII/index.html">
+<meta property="og:title" content="搭建一个基于wordpress的房产网站.">
+<meta property="og:url" content="http://yoursite.com/2017/05/31/website_analysis_0531/index.html">
 <meta property="og:site_name" content="Peixuan的面试刷题笔记">
-<meta property="og:description" content="Problem Reverse a linked list from position m to n. Example:Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL, m = 2 and n = 4, return 1-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;5-&amp;gt;NULL.  Analysis   问题 理解与解答     概括 反转指定位置之间的节">
-<meta property="og:updated_time" content="2017-05-05T16:46:08.000Z">
+<meta property="og:description" content="搭建基于wordpress的房产网站.类似网站分析beimeigoufang是一个有5年开发历史的网站, 经历过1次较大改版和多次小的版面调整. 改版时加入了分类与搜索.最新版本:    全球排名 访客排名 国家/地区 国家/地区排名     255330 268050 CN 47052    Frameworks: asp.net Web Server: IIS待分析网站目录与内容结构:目录结构">
+<meta property="og:updated_time" content="2017-06-01T19:22:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Reverse Linked List II 解题报告">
-<meta name="twitter:description" content="Problem Reverse a linked list from position m to n. Example:Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL, m = 2 and n = 4, return 1-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;5-&amp;gt;NULL.  Analysis   问题 理解与解答     概括 反转指定位置之间的节">
+<meta name="twitter:title" content="搭建一个基于wordpress的房产网站.">
+<meta name="twitter:description" content="搭建基于wordpress的房产网站.类似网站分析beimeigoufang是一个有5年开发历史的网站, 经历过1次较大改版和多次小的版面调整. 改版时加入了分类与搜索.最新版本:    全球排名 访客排名 国家/地区 国家/地区排名     255330 268050 CN 47052    Frameworks: asp.net Web Server: IIS待分析网站目录与内容结构:目录结构">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/05/ReverseLinkedListII/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/31/website_analysis_0531/"/>
 
 
 
 
 
-  <title>Reverse Linked List II 解题报告 | Peixuan的面试刷题笔记</title>
+  <title>搭建一个基于wordpress的房产网站. | Peixuan的面试刷题笔记</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -252,7 +252,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/05/ReverseLinkedListII/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/31/website_analysis_0531/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Peixuan Li">
@@ -269,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Reverse Linked List II 解题报告</h1>
+          <h1 class="post-title" itemprop="name headline">搭建一个基于wordpress的房产网站.</h1>
         
 
         <div class="post-meta">
@@ -281,8 +281,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-05T03:13:43-05:00">
-                2017-05-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-31T23:40:11-05:00">
+                2017-05-31
               </time>
             
 
@@ -338,45 +338,82 @@
       
 
       
-        <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a><a href="https://www.lintcode.com/en/problem/reverse-linked-list-ii/" target="_blank" rel="external">Problem</a></h2><blockquote>
-<p>Reverse a linked list from position m to n.</p>
-<p>Example:<br>Given 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, m = 2 and n = 4, return 1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;NULL.</p>
-</blockquote>
-<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><table>
+        <h1 id="搭建基于wordpress的房产网站"><a href="#搭建基于wordpress的房产网站" class="headerlink" title="搭建基于wordpress的房产网站."></a>搭建基于wordpress的房产网站.</h1><h2 id="类似网站分析"><a href="#类似网站分析" class="headerlink" title="类似网站分析"></a>类似网站分析</h2><p><a href="http://www.beimeigoufang.com" target="_blank" rel="external">beimeigoufang</a>是一个有5年开发历史的网站, 经历过1次较大改版和多次小的版面调整. 改版时加入了分类与搜索.<br>最新版本:</p>
+<table>
 <thead>
 <tr>
-<th>问题</th>
-<th>理解与解答</th>
+<th>全球排名</th>
+<th>访客排名</th>
+<th>国家/地区</th>
+<th>国家/地区排名</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>概括</strong></td>
-<td>反转指定位置之间的节点</td>
-</tr>
-<tr>
-<td><strong>思路</strong></td>
-<td>1.逐个反转; 2.选取指定区域,先整体反转再拼接</td>
-</tr>
-<tr>
-<td><strong>提示</strong></td>
-<td>1.反转linkedList; 2.复杂度要求in place, one time.</td>
-</tr>
-<tr>
-<td><strong>复杂度</strong></td>
-<td>O(n), in place</td>
+<td>255330</td>
+<td>268050</td>
+<td>CN</td>
+<td>47052</td>
 </tr>
 </tbody>
 </table>
-<p><strong>类似题目</strong> : <a href="https://www.lintcode.com/en/problem/reverse-linked-list/" target="_blank" rel="external">Reverse Linked List</a>; </p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h2><ul>
-<li>开始判断 head == null || head.next ==null</li>
-<li>dummyNode</li>
-<li>逐个反转?</li>
-<li>m, n的值是从1开始的.<del>(而不是从0开始)</del></li>
-<li>当反转一个点后,因头节点相对位置变化,需要<strong>用pre重新赋值</strong>, 否则只能在前两个点间打转, 直到内存溢出.</li>
+<p>Frameworks: asp.net</p>
+<h2 id="Web-Server-IIS"><a href="#Web-Server-IIS" class="headerlink" title="Web Server: IIS"></a>Web Server: IIS</h2><h2 id="待分析网站目录与内容结构"><a href="#待分析网站目录与内容结构" class="headerlink" title="待分析网站目录与内容结构:"></a>待分析网站目录与内容结构:</h2><h4 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h4><p>主页</p>
+<ul>
+<li>房产相关<br>⋅⋅<em> 最新房源<br>⋅⋅</em> 商业地产<br>⋅⋅* 新楼盘</li>
+<li>资讯<br>⋅⋅* 北美资讯</li>
+<li>常见问题</li>
+<li>用户登录<br>⋅⋅<em> 我的信息<br>⋅⋅</em> 我的顾问<br>⋅⋅<em> 我的收藏<br>⋅⋅</em> 我的浏览<br>⋅⋅<em> 我的投资<br>⋅⋅</em> 支付记录</li>
+<li>经纪登录<br>⋅⋅<em> 发布房源<br>⋅⋅</em> 修改房源<br>⋅⋅<em> 客户留言<br>⋅⋅</em> ???</li>
 </ul>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码:"></a>代码:</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Definition for ListNode</div><div class="line"> * public class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123;</div><div class="line"> *         val = x;</div><div class="line"> *         next = null;</div><div class="line"> *     &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@param</span> ListNode head is the head of the linked list </div><div class="line">     * <span class="doctag">@oaram</span> m and n</div><div class="line">     * <span class="doctag">@return</span>: The head of the reversed ListNode</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseBetween</span><span class="params">(ListNode head, <span class="keyword">int</span> m , <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(head == <span class="keyword">null</span> || head.next ==<span class="keyword">null</span>)&#123;</div><div class="line">            <span class="keyword">return</span> head;</div><div class="line">        &#125;</div><div class="line">        ListNode dummy = <span class="keyword">new</span> ListNode(-<span class="number">1</span>);</div><div class="line">        dummy.next = head;</div><div class="line">        ListNode pre = dummy;</div><div class="line">        ListNode begin = dummy;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n ; i++)&#123;</div><div class="line">            <span class="keyword">if</span>(i == m-<span class="number">1</span>)&#123;</div><div class="line">                begin = head;</div><div class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(i == m)&#123;</div><div class="line">                pre = head;</div><div class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(i &gt; m)&#123;</div><div class="line">                pre.next = head.next;</div><div class="line">                head.next = begin.next;</div><div class="line">                begin.next = head;</div><div class="line">                head = pre; <span class="comment">// Head was on the left of pre.</span></div><div class="line">            &#125;</div><div class="line">            head = head.next;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> dummy.next;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>底部目录</p>
+<ul>
+<li>关于我们</li>
+<li>联系方式</li>
+<li>经纪人注册</li>
+<li>加入我们</li>
+<li>常见问题 X</li>
+<li>官方微博</li>
+<li>城市索引: site map</li>
+<li>商务合作 </li>
+<li><p>发布房源 X</p>
+<h4 id="房源结构"><a href="#房源结构" class="headerlink" title="房源结构:"></a>房源结构:</h4><blockquote>
+<p>不同类别可同时选择</p>
+</blockquote>
+</li>
+<li><p>地理位置(多级): 城市-区域</p>
+</li>
+<li>类型</li>
+<li>价格</li>
+<li>筛选(在结果中筛出部分条目):卧室数 浴室数 室内面积 占地面积 房龄</li>
+</ul>
+<h4 id="收费系统"><a href="#收费系统" class="headerlink" title="收费系统:"></a>收费系统:</h4><blockquote>
+<p>生成支付宝链接<br>支付记录</p>
+</blockquote>
+<h4 id="用户分组"><a href="#用户分组" class="headerlink" title="用户分组:"></a>用户分组:</h4><ul>
+<li>普通用户</li>
+<li>会员(地址可见), VIP会员(商业地址可见)</li>
+<li>经纪(能发布房源)</li>
+</ul>
+<h4 id="后台功能"><a href="#后台功能" class="headerlink" title="后台功能:"></a>后台功能:</h4><p>用户登录:<br>手机短信注册.</p>
+<p>新闻与房源<br>购房资讯: 不跳转的表单<br>房源属性: 当页跳转</p>
+<h2 id="开发规划"><a href="#开发规划" class="headerlink" title="开发规划:"></a>开发规划:</h2><p>服务器环境: LAMP/LEMP<br>语言: PHP, JavaScript, HTML, CSS<br>网站框架wordpress(人工成本低, 开发速度快, 容易更新和维护)</p>
+<p>基本开发:<br>week 1: 工作环境搭建 模板选择与测试;<br>    服务器相关选择,主题模板选择,<br>    服务器,语言,数据库及软件相关配置;<br>    domain相关配置;<br>    搭建框架与测试内容填充;</p>
+<p>week 2-3:页面开发, 插件选择与测试;<br>    网站页面开发<br>    插件配置<br>    表单模块<br>    支付模块<br>    地图相关</p>
+<p>week 4-6:内容分类, 权限分级, 表单设计<br>    网站页面开发<br>    房源结构<br>    资讯结构<br>    用户可见度<br>    注册与留言</p>
+<p>week 7-8<br>    SEO,外链,网站地图<br>    流量分析 GA or Piwik<br>    内部测试: 导入数据并调试<br>    试运营</p>
+<p>更多:</p>
+<ol>
+<li>异步查询:查询页面框架和数据加载分开.</li>
+<li>网站翻译部署</li>
+<li>数据的备份与恢复</li>
+<li>性能调优,静态化</li>
+<li>配合修改图片及页面效果</li>
+<li>短信注册登录</li>
+<li>内容分发网络CDN</li>
+<li>…</li>
+</ol>
+<h2 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h2><p>工具及介绍:<br><a href="http://archive.org/web/web.php" target="_blank" rel="external">Wayback Machine</a> : 查网站过去动态<br><a href="http://www.alexa.cn/rank/beimeigoufang.com" target="_blank" rel="external">网站排名</a><br><a href="https://website.grader.com/" target="_blank" rel="external">SEO分析</a></p>
 
       
     </div>
@@ -413,8 +450,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/05/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2017/05/07/algorithmSummarize/" rel="next" title="算法复习笔记">
+                <i class="fa fa-chevron-left"></i> 算法复习笔记
               </a>
             
           </div>
@@ -423,8 +460,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/05/CopyListwithRandomPointer/" rel="prev" title="Copy List with Random Pointer">
-                Copy List with Random Pointer <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/01/SurroundedRegions/" rel="prev" title="Surrounded Regions 解题报告">
+                Surrounded Regions 解题报告 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -545,7 +582,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Problem"><span class="nav-number">1.</span> <span class="nav-text">Problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">2.</span> <span class="nav-text">Analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建基于wordpress的房产网站"><span class="nav-number">1.</span> <span class="nav-text">搭建基于wordpress的房产网站.</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#类似网站分析"><span class="nav-number">1.1.</span> <span class="nav-text">类似网站分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web-Server-IIS"><span class="nav-number">1.2.</span> <span class="nav-text">Web Server: IIS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#待分析网站目录与内容结构"><span class="nav-number">1.3.</span> <span class="nav-text">待分析网站目录与内容结构:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#目录结构"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">目录结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#房源结构"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">房源结构:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#收费系统"><span class="nav-number">1.3.0.3.</span> <span class="nav-text">收费系统:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用户分组"><span class="nav-number">1.3.0.4.</span> <span class="nav-text">用户分组:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#后台功能"><span class="nav-number">1.3.0.5.</span> <span class="nav-text">后台功能:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发规划"><span class="nav-number">1.4.</span> <span class="nav-text">开发规划:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#备注"><span class="nav-number">1.5.</span> <span class="nav-text">备注</span></a></li></ol></li></ol></div>
             
 
           </div>
