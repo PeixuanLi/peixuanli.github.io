@@ -1,0 +1,900 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="还是需要记笔记, 不然看过的视频很快就忘记了   1路由 2依赖注入 3数据绑定,响应式编程和管道 4组件间通讯 5表单处理 6与服务器通讯 7构建和部署 8其他相关小知识  Angular路由router传递参数查询参数中1. src/app/app-routing.module.ts: {path: ‘product’, component: ProductComponent},2. src">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angular学习笔记">
+<meta property="og:url" content="http://yoursite.com/2017/10/30/Angular笔记/index.html">
+<meta property="og:site_name" content="Peixuan的面试刷题笔记">
+<meta property="og:description" content="还是需要记笔记, 不然看过的视频很快就忘记了   1路由 2依赖注入 3数据绑定,响应式编程和管道 4组件间通讯 5表单处理 6与服务器通讯 7构建和部署 8其他相关小知识  Angular路由router传递参数查询参数中1. src/app/app-routing.module.ts: {path: ‘product’, component: ProductComponent},2. src">
+<meta property="og:image" content="http://yoursite.com/2017/10/30/Angular笔记/uploads/AngularImg/eventBinding.png">
+<meta property="og:updated_time" content="2017-11-11T17:34:11.676Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Angular学习笔记">
+<meta name="twitter:description" content="还是需要记笔记, 不然看过的视频很快就忘记了   1路由 2依赖注入 3数据绑定,响应式编程和管道 4组件间通讯 5表单处理 6与服务器通讯 7构建和部署 8其他相关小知识  Angular路由router传递参数查询参数中1. src/app/app-routing.module.ts: {path: ‘product’, component: ProductComponent},2. src">
+<meta name="twitter:image" content="http://yoursite.com/2017/10/30/Angular笔记/uploads/AngularImg/eventBinding.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/30/Angular笔记/"/>
+
+
+
+
+
+  <title>Angular学习笔记 | Peixuan的面试刷题笔记</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Peixuan的面试刷题笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/30/Angular笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Peixuan Li">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Peixuan的面试刷题笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Angular学习笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-30T11:54:39-05:00">
+                2017-10-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Angular笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">Angular笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>还是需要记笔记, 不然看过的视频很快就忘记了</p>
+</blockquote>
+<ul>
+<li><a href="#1">1路由</a></li>
+<li><a href="#2">2依赖注入</a></li>
+<li><a href="#3">3数据绑定,响应式编程和管道</a></li>
+<li><a href="#4">4组件间通讯</a></li>
+<li><a href="#5">5表单处理</a></li>
+<li><a href="#6">6与服务器通讯</a></li>
+<li><a href="#7">7构建和部署</a></li>
+<li><a href="#8">8其他相关小知识</a></li>
+</ul>
+<h1 id="1">Angular路由</h1><br>router传递参数<br>查询参数中<br>1. src/app/app-routing.module.ts: {path: ‘product’, component: ProductComponent},<br>2. src/app/app.component.html:  <a [routerlink]="['/product']" [queryparams]="{id: 1}">商品详情</a><br>3. src/app/product/product.component.ts:<br>      ngOnInit() {<br>        this.productId = this.routetInfo.snapshot.queryParams[“id”];<br>      }<br><br>url中<br>1. src/app/app-routing.module.ts: {path: ‘product/:id’, component: ProductComponent},<br>2. src/app/app.component.html:  <a [routerlink]="['/product', 1]">商品详情</a><br>3. src/app/product/product.component.ts:<br>      ngOnInit() {<br>        this.routetInfo.params.subscribe((params:Params) =&gt; this.productId = params[“id”])<br>      }<br><br><h1 id="2">Angular依赖注入</h1><br>&gt;依赖注入(Dependency Injection, DI) = 控制反转(Inversion of Control, IOC)<br>&gt;依赖注入是手段, 控制反转是目的.<br><br>## 提供器<br>&gt; 主要写法 <code>providers:[ProductService]</code><br><br><em> 三种方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">@NgModule(&#123;</div><div class="line">  //1. </div><div class="line">  providers:[ProductService]</div><div class="line">  //2.</div><div class="line">  providers:[&#123;provide:ProductService, useclass:AnotherProductService&#125;]</div><div class="line">  //3. </div><div class="line">  providers: [</div><div class="line">    &#123;</div><div class="line">      provide: ProductService,</div><div class="line">      useFactory: (logger : LoggerService, appConfig)=&gt;&#123;</div><div class="line">        if(appConfig.isDev)&#123;</div><div class="line">          return new ProductService(logger);</div><div class="line">        &#125;else&#123;</div><div class="line">          return new AnotherProductService(logger);</div><div class="line">        &#125;</div><div class="line">      &#125;,</div><div class="line">      deps:[LoggerService,&quot;APP_CONFIG&quot;]</div><div class="line">    &#125;,</div><div class="line">    LoggerService,&#123;</div><div class="line">      provide:&quot;APP_CONFIG&quot;, useValue:&#123;isDev:true &#125;</div><div class="line">    &#125;,</div><div class="line">  ],</div><div class="line">  bootstrap: [AppComponent]</div><div class="line">&#125;)</div><div class="line">export class AppModule &#123; &#125;</div></pre></td></tr></table></figure>
+
+</em> 可声明在模块或组件中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//声明在组件</div><div class="line">@Component(&#123;</div><div class="line">    providers:[&#123;provide:ProductService, useclass:AnotherProductService&#125;]</div><div class="line">&#125;)</div></pre></td></tr></table></figure><br><br>服务一般都要加 @Injectable() 的声明, 用于通过构造函数把其他服务注入其中.<br>它能否注入其他地方取决于它在不在对应的 providers 中声明来决定的<br>@Component() 装饰器是 @Injectable() 子类, 所以可以不用声明 @Injectable()就被能注入服务.<br><br>## 注入器<br>&gt; 主要写法: <code>constructor(private productService: ProductService){}</code><br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//1. </div><div class="line">constructor(private productService: ProductService)&#123;&#125;</div><div class="line"></div><div class="line">// 2. 使用Injector</div><div class="line">//需要深入到代码实现中才能理解其作用,框架开发人员用这种方式可以动态获取服务</div><div class="line">constructor(private injector: Injector)&#123;</div><div class="line">    this.productService: injector.get(ProductService);</div><div class="line">&#125;</div><div class="line">//3.</div><div class="line">constructor(@Inject(FormBuilder) fb: FormBuilder) &#123;</div><div class="line">    this.form = fb.group(&#123;</div><div class="line">      email: &apos;&apos;,</div><div class="line">    &#125;);</div><div class="line">  &#125;</div></pre></td></tr></table></figure><br><br><h1 id="3">Angular数据绑定,响应式编程和管道</h1>
+
+<h2 id="插值表达式-和-属性绑定-是一回事"><a href="#插值表达式-和-属性绑定-是一回事" class="headerlink" title="插值表达式 和 属性绑定 是一回事"></a>插值表达式 和 属性绑定 是一回事</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 插值表达式 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"&#123;&#123;imgUrl&#125;&#125;"</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 属性绑定 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">img</span> [<span class="attr">src</span>]=<span class="string">"imgUrl"</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h2><p><img src="./uploads/AngularImg/eventBinding.png" alt="事件绑定图" title="Event Binding"><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 事件绑定 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> (<span class="attr">click</span>) = <span class="string">"onclick($event)"</span>&gt;</span> 点击按钮 <span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 表达式可以是属性赋值 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> (<span class="attr">click</span>) = <span class="string">"saved = true"</span>&gt;</span> 点击按钮 <span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="Angular-通过绑定DOM属性和事件来工作"><a href="#Angular-通过绑定DOM属性和事件来工作" class="headerlink" title="Angular 通过绑定DOM属性和事件来工作."></a>Angular 通过绑定DOM属性和事件来工作.</h2><p>DOM 属性和 HTML 属性区别:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">"some text"</span> (<span class="attr">input</span>) = <span class="string">"doInputEvent($event)"</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>在相应的YourFileName.component.ts中<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">doInputEvent(event:<span class="built_in">any</span>)&#123;</div><div class="line">  <span class="built_in">console</span>.log(event.target.value); <span class="comment">// 调用DOM属性, 值会随着输入变化而变化</span></div><div class="line">  <span class="built_in">console</span>.log(event.target.getAttribute(<span class="string">'value'</span>)); <span class="comment">// 调用HTML属性, 始终输出value的值</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="HTML-属性绑定"><a href="#HTML-属性绑定" class="headerlink" title="HTML 属性绑定"></a>HTML 属性绑定</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[ngclass] = &quot;&#123;...:...&#125;&quot; </div><div class="line">[ngclass] = &quot;expreesion&quot; </div><div class="line">[ngstyle] = &quot;&#123;&#125;&quot;</div></pre></td></tr></table></figure>
+<h2 id="双向绑定使用"><a href="#双向绑定使用" class="headerlink" title="双向绑定使用"></a>双向绑定使用</h2><p>我们已经学习了 事件绑定(从视图到模型,使用”()”) 和 属性绑定(从控制器到模板,使用”[]”). 联合使用可以实现双向绑定, 可以[(ngModel)]简写.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 下面两个输入框效果一致 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> [<span class="attr">value</span>]=<span class="string">"name"</span> (<span class="attr">input</span>) = <span class="string">"doInputEvent($event)"</span>&gt;</span> &#123;&#123;name&#125;&#125;</div><div class="line"><span class="tag">&lt;<span class="name">input</span> [(<span class="attr">ngModel</span>)]=<span class="string">"name"</span>&gt;</span> &#123;&#123;name&#125;&#125;</div></pre></td></tr></table></figure>
+<p>对应的component.ts:<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> BindComponent <span class="keyword">implements</span> OnInit &#123;</div><div class="line">  name:<span class="built_in">string</span>;</div><div class="line">  <span class="keyword">constructor</span>(<span class="params"></span>) &#123;</div><div class="line">    setInterval(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</div><div class="line">      <span class="keyword">this</span>.name = <span class="string">"tom"</span></div><div class="line">    &#125;,<span class="number">3000</span>)</div><div class="line">  &#125;</div><div class="line">  doInputEvent(event:<span class="built_in">any</span>)&#123;</div><div class="line">    <span class="keyword">this</span>.name = event.target.value;</div><div class="line">  &#125;</div><div class="line">  ngOnInit() &#123;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>注意:</p>
+<ul>
+<li>需在 app.model 中 import FormsModule, 详见<a href="https://stackoverflow.com/questions/38892771/cant-bind-to-ngmodel-since-it-isnt-a-known-property-of-input" target="_blank" rel="external">cant-bind-to-ngmodel-since-it-isnt-a-known-property-of-input</a></li>
+<li>双向绑定常用于特定的表单元素上, 因为他们可以既显示又允许修改.</li>
+</ul>
+<h2 id="响应式编程"><a href="#响应式编程" class="headerlink" title="响应式编程"></a>响应式编程</h2><blockquote>
+<p>万物都可以用流处理,如变量,输入,用户缓存,点击等等</p>
+</blockquote>
+<p>响应式编程是观察者模式的实现,也是异步数据流编程, 被观察者(observable, 流)可以做三件事:  </p>
+<ul>
+<li>发送下一个元素(数字,时间)</li>
+<li>抛出异常</li>
+<li>在流结束时被调用<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Observable.from([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</div><div class="line">  .filter(<span class="function"><span class="params">e</span> =&gt;</span> e%<span class="number">2</span> == <span class="number">0</span>)</div><div class="line">  .map(<span class="function"><span class="params">e</span> =&gt;</span> e *e)</div><div class="line">  .subscribe(</div><div class="line">    <span class="function"><span class="params">e</span> =&gt;</span> <span class="built_in">console</span>.log(e),</div><div class="line">    <span class="function"><span class="params">error</span> =&gt;</span> <span class="built_in">console</span>.log(error),    <span class="comment">//可选</span></div><div class="line">    () =&gt; <span class="built_in">console</span>.log(<span class="string">"end"</span>)        <span class="comment">//可选</span></div><div class="line">  )</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>举例: 随时输出键入的文本(只要停下超过500ms就执行某方法, 常用于实时搜索)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 第一个文本框是正常javascript的实现, 很难实现流的处理 --&gt;</div><div class="line">&lt;input #myObservableTest1 (keyup) = &quot;onKey(myObservableTest1.value)&quot;&gt;</div><div class="line">&lt;input [formControl] = &quot;searchInput&quot;&gt;</div></pre></td></tr></table></figure></p>
+<p>修改对应的component.ts<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">searchInput:FormControl = <span class="keyword">new</span> FormControl();</div><div class="line"><span class="comment">//...</span></div><div class="line"><span class="keyword">constructor</span>(<span class="params"></span>) &#123;</div><div class="line">  <span class="keyword">this</span>.searchInput.valueChanges</div><div class="line">    .debounceTime(<span class="number">500</span>)</div><div class="line">    .subscribe(</div><div class="line">      <span class="function"><span class="params">e</span> =&gt;</span> <span class="keyword">this</span>.onKey(e)</div><div class="line">    );</div><div class="line"> &#125;</div><div class="line"> onKey(s:<span class="built_in">string</span>)&#123;</div><div class="line">  <span class="built_in">console</span>.log(s);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>注意:</p>
+<ul>
+<li>需要引入 ReactiveFormsModule, HttpModule 至对应 app.module.ts </li>
+<li>需要引入 ‘rxjs/Rx’ 至对应的 component.ts</li>
+</ul>
+<h2 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;管道&lt;/p&gt;</div><div class="line">&lt;p&gt;今天是&#123;&#123;today | date | uppercase&#125;&#125;&lt;/p&gt;</div><div class="line">&lt;p&gt;自定义管道&#123;&#123; 7 | multiple:&apos;2&apos;&#125;&#125;&lt;/p&gt;</div></pre></td></tr></table></figure>
+<p>创建管道<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">import &#123; Pipe, PipeTransform &#125; fr om &apos;@angular/core&apos;;</div><div class="line"></div><div class="line">@Pipe(&#123;</div><div class="line">  name: &apos;multiple&apos;</div><div class="line">&#125;)</div><div class="line">export class MultiplePipe implements PipeTransform &#123;</div><div class="line">  </div><div class="line">  transform(value: any, args?: number): any &#123;</div><div class="line">    if(!args)&#123;</div><div class="line">      args = 1;</div><div class="line">    &#125;</div><div class="line">    return value * args;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>注:</p>
+<ul>
+<li>需在 app.moldule 中声明 FilterPipe</li>
+<li>问题: 为什么 service 需要放入提供器而 pipe 不需要呢?</li>
+</ul>
+<h1 id="4">Angular组件间通讯</h1>
+
+<h2 id="输入属性-父组件对象输出至子组件"><a href="#输入属性-父组件对象输出至子组件" class="headerlink" title="输入属性 (父组件对象输出至子组件)"></a>输入属性 (父组件对象输出至子组件)</h2><blockquote>
+<p>子组件中 @Input() 注释的对象不会影响父组件的值</p>
+</blockquote>
+<ul>
+<li><p>子组件中:</p>
+<ul>
+<li>通过ts文件中的 @Input() 使之变为可被输入的对象<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">@Input()</div><div class="line">stockcode:string;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>父组件中:</p>
+<ul>
+<li>html的子组件标签中的通过[属性绑定]将父组件中的变量绑定至子组件<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">app-order</span> [<span class="attr">stockcode</span>] = <span class="string">"stock"</span> [<span class="attr">amount</span>] = <span class="string">"100"</span>&gt;</span><span class="tag">&lt;/<span class="name">app-order</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 其中stockcode为子组件的变量名, stock为父组件的变量名 --&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="输出属性-子组件对象输出至父组件"><a href="#输出属性-子组件对象输出至父组件" class="headerlink" title="输出属性 (子组件对象输出至父组件)"></a>输出属性 (子组件对象输出至父组件)</h2><ul>
+<li><p>子组件中: </p>
+<ul>
+<li><p>声明为 @Output 的 EventEmitter 对象, 类型是带输出的对象类, 和待输出对象的名称或别名</p>
+  <figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Output</span>(<span class="string">"outputPrice"</span>)</div><div class="line">lastPrice:EventEmitter&lt;PriceQuote&gt; = <span class="keyword">new</span> EventEmitter()</div></pre></td></tr></table></figure>
+</li>
+<li><p>在构造函数中使用EventEmitter对象的emit方法发射待输出对象</p>
+  <figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.lastPrice.emit(priceQuote);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>父组件中: </p>
+<ul>
+<li><p>html的子组件标签中写对象名称和处理方法</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">app-price-quote</span> (<span class="attr">outputPrice</span>) = <span class="string">"priceQuoteHandle($event)"</span>&gt;</span><span class="tag">&lt;/<span class="name">app-price-quote</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>在ts文件中写处理方法</p>
+  <figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">priceQuoteHandle(event:PriceQuote)&#123;</div><div class="line">    <span class="keyword">this</span>.priceQuote = event;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="中间人模式"><a href="#中间人模式" class="headerlink" title="中间人模式"></a>中间人模式</h2><ul>
+<li>有共同的父组件: 结合输入输出属性, 就能在上一级组件中传输两个不相关的子组件的对象.</li>
+<li>通过可注入的服务作为中间人, 组件可以订阅服务发出的事件流.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;app-price-quote (outputPrice) = &quot;priceQuoteHandle($event)&quot;&gt;&lt;/app-price-quote&gt;</div><div class="line">&lt;app-order [priceQuote] = &quot;priceQuote&quot;&gt;&lt;/app-order&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="在父组件中使用子组件的方法"><a href="#在父组件中使用子组件的方法" class="headerlink" title="在父组件中使用子组件的方法"></a>在父组件中使用子组件的方法</h2><blockquote>
+<p>少用这种方法, 会增加父子组件间的耦合</p>
+</blockquote>
+<ul>
+<li><p>方法1: 在html中调用</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">app-child</span> #<span class="attr">child1</span>&gt;</span><span class="tag">&lt;/<span class="name">app-child</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">app-child</span> #<span class="attr">child2</span>&gt;</span><span class="tag">&lt;/<span class="name">app-child</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> (<span class="attr">click</span>) = <span class="string">"child2.greeting('Jerry')"</span>&gt;</span>调用子组件child2中的greeting方法</div></pre></td></tr></table></figure>
+</li>
+<li><p>方法2: 在对应 component.ts 中调用</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@ViewChild</span>(<span class="string">"child1"</span>)</div><div class="line">child1:ChildComponent;</div><div class="line"></div><div class="line"><span class="keyword">constructor</span>(<span class="params"></span>)&#123;&#125;</div><div class="line"></div><div class="line">ngOnInit() &#123;</div><div class="line">    <span class="keyword">this</span>.child1.greeting(<span class="string">"Tom"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="投影"><a href="#投影" class="headerlink" title="投影"></a>投影</h2><p>使用 ng-content 在父组件中投影内容到子组件中</p>
+<ul>
+<li>在子组件用 ng-content 标签写入投影点<br><code>&lt;ng-content&gt;&lt;/ng-content&gt;</code></li>
+<li>在父组件的模板中将要投影的内容写入子组件标签中<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">app-child</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>要投影的内容<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">app-child</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="组件生命周期和钩子"><a href="#组件生命周期和钩子" class="headerlink" title="组件生命周期和钩子"></a>组件生命周期和钩子</h2><h3 id="angular变化发现机制"><a href="#angular变化发现机制" class="headerlink" title="angular变化发现机制"></a>angular变化发现机制</h3><ul>
+<li>从根组件开始使用 doCheck 检查除了OnPush及其子组件.</li>
+<li>OnPush 输入属性变化时才会被检查</li>
+<li>doCheck 调用会非常频繁, 小心使用, 要非常高效和轻量级</li>
+</ul>
+<h3 id="view钩子"><a href="#view钩子" class="headerlink" title="view钩子"></a>view钩子</h3><ul>
+<li>ngAfterCiewInit 和 ngAfterCiewChecked 在组件视图被组装完毕后调用</li>
+<li>如果有子组件, 所有子组件组装完毕后才会触发.</li>
+<li>在 ngAfterCiewInit 和 ngAfterCiewChecked 钩子中不能更改模板内容, 除非放在另一个时间循环中, 使其在另一个 javascript 运行周期中运行.</li>
+</ul>
+<h3 id="生命周期详解"><a href="#生命周期详解" class="headerlink" title="生命周期详解"></a>生命周期详解</h3><p>见官方文档: <a href="https://angular.io/guide/lifecycle-hooks#aftercontent" target="_blank" rel="external">Lifecycle Hooks</a></p>
+<h1 id="5">Angular表单处理</h1>
+
+<blockquote>
+<p>区分模板式表单和响应式表单:<br>  响应式表单模板中的字段都已form开头<br>  模板式表单只能在模板中操作数据模型<br>  响应式表单只能在代码中操作数据模型</p>
+</blockquote>
+<h2 id="模板式表单"><a href="#模板式表单" class="headerlink" title="模板式表单"></a>模板式表单</h2><h3 id="NgForm"><a href="#NgForm" class="headerlink" title="NgForm"></a>NgForm</h3><pre><code>- 隐式的创建 FormGroup 类, 
+- 自动发现标有 NgModel 的子元素并添加到表单数据模型中, 
+- 默认情况下 Angular 自动使用NgForm处理表单, 原表单无法自动提交,
+- 如果不希望 Angular 自动处理表单,可以添加NgNoForm
+- NgForm 通过 ngSubmit 的事件提交表单
+- 无论是不是 form 标签(比如div中),只要添加 NgForm 都可以做表单填写
+- 可以通过模板本地变量引用 NgForm 创建的对象的实例
+    <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> #<span class="attr">myForm</span> = <span class="string">"ngForm"</span> &gt;</span> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">    &#123;&#123;myForm.value&#125;&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+</code></pre><h3 id="NgModel"><a href="#NgModel" class="headerlink" title="NgModel"></a>NgModel</h3><pre><code>- 代表一个字段, 会隐式的创建 FormControl 实例代表数据模型,并代表数据的值
+- 在NgForm中使用时不需要用[()]做双向绑定, 但需要指定一个name属性
+- 可以通过模板变量引用NgModel创建的对象的实例
+</code></pre><h3 id="NgModelGroup"><a href="#NgModelGroup" class="headerlink" title="NgModelGroup"></a>NgModelGroup</h3><pre><code>- 代表表单的一部分
+- 隐式的创建 FormGroup 类, 
+- 会将其中的元素嵌套在其对象模型中
+</code></pre><h2 id="响应式表单"><a href="#响应式表单" class="headerlink" title="响应式表单"></a>响应式表单</h2><h3 id="用编码创建数据模型"><a href="#用编码创建数据模型" class="headerlink" title="用编码创建数据模型"></a>用编码创建数据模型</h3><ul>
+<li>FormControl<br>  <code>username:FormControl = new FormControl(&quot;aaa&quot;);</code></li>
+<li><p>FormGroup: 常用于代表整个表单,或其中的一个子集,通过key访问</p>
+  <figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">formModel:FormGroup = <span class="keyword">new</span> FormGroup(&#123;</div><div class="line">    <span class="keyword">from</span>: <span class="keyword">new</span> FormControl(), </div><div class="line">    to : <span class="keyword">new</span> FormControl()&#125;&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>FormArray: 常用于代表一个可以增长的数据集合, 通过序号访问</p>
+  <figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">emails:FormArray = <span class="keyword">new</span> FormArray([</div><div class="line">    <span class="keyword">new</span> FormControl(<span class="string">"a@a.com"</span>),</div><div class="line">    <span class="keyword">new</span> FormControl(<span class="string">"b@b.com"</span>),</div><div class="line">    ]);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="使用指令将html元素链接到数据模型上"><a href="#使用指令将html元素链接到数据模型上" class="headerlink" title="使用指令将html元素链接到数据模型上"></a>使用指令将html元素链接到数据模型上</h3><ul>
+<li>使用 formGroup, formGroupName, formControl, formControlName, formArrayName</li>
+<li>formControlName, formArrayName 必须要写在formGroup的范围内</li>
+<li>formControl 字段不能在使用在 formGroup</li>
+<li>formArrayName 常与 *ngFor 配合使用</li>
+</ul>
+<h3 id="举例"><a href="#举例" class="headerlink" title="举例:"></a>举例:</h3><ul>
+<li><p>在模板中写入相应字段</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> [<span class="attr">formControl</span>] = <span class="string">"username"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> [<span class="attr">formGroup</span>] = <span class="string">"formModel"</span> (<span class="attr">submit</span>) = <span class="string">"onSubmit()"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">formGroupName</span> = <span class="string">"dateRange"</span>&gt;</span></div><div class="line">        起始日期: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"date"</span> <span class="attr">formControlName</span> = <span class="string">"from"</span>&gt;</span></div><div class="line">        截止日期: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"date"</span> <span class="attr">formControlName</span> = <span class="string">"to"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">formArrayName</span> = <span class="string">"emails"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span> *<span class="attr">ngFor</span> = <span class="string">"let e of this.formModel.get('emails').controls, let i= index;"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span> = <span class="string">"text"</span> [<span class="attr">formControlName</span>] = <span class="string">"i"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> (<span class="attr">click</span>) = <span class="string">"addEmail()"</span>&gt;</span>添加email<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>保存<span class="tag">&lt;/<span class="name">button</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>在对应 component.ts 添加 addEmail() 方法:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">addEmail()&#123;</div><div class="line"> <span class="keyword">let</span> emails = <span class="keyword">this</span>.formModel.get(<span class="string">"emails"</span>) <span class="keyword">as</span> FormArray;</div><div class="line"> emails.push(<span class="keyword">new</span> FormControl()); </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="FormBuilder"><a href="#FormBuilder" class="headerlink" title="FormBuilder"></a>FormBuilder</h1><pre><code>- 在 constructor中引入 FormBuilder 可以大大减轻代码量
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">constructor</span>(<span class="params">fb: FormBuilder</span>) &#123;</div><div class="line"><span class="keyword">this</span>.formModel = fb.group(&#123;</div><div class="line">  username: [<span class="string">'monkey'</span>],</div><div class="line">  mobile:[<span class="string">''</span>],</div><div class="line">  passwordsFroup:fb.group(&#123;</div><div class="line">    password: [<span class="string">''</span>, Validators.minLength(<span class="number">2</span>)],</div><div class="line">    pconfirm: <span class="string">''</span>,</div><div class="line">  &#125;),</div><div class="line">  email: <span class="string">''</span>,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</code></pre><ul>
+<li>注意:<ul>
+<li>响应式表单中指令的实例是不可引用的(无法申明模板本地变量)</li>
+</ul>
+</li>
+</ul>
+<h2 id="表单验证"><a href="#表单验证" class="headerlink" title="表单验证"></a>表单验证</h2><h1 id="6">Angular与服务器通讯</h1><br>http服务,来自HttpModule,只有调subscribe时才发请求<br>WebSocket协议,更简洁高效,是双向的<br><br>http服务和WebSocket协议在angular中都由响应式编程实现<br><br><h1 id="7">Angular构建和部署</h1><br><h1 id="8">Angular其他相关小知识</h1>
+
+<h2 id="在开发过程中-要先设计组件"><a href="#在开发过程中-要先设计组件" class="headerlink" title="在开发过程中,要先设计组件"></a>在开发过程中,要先设计组件</h2><ul>
+<li>定义好可重用的组件</li>
+<li>中间人是谁, </li>
+<li>输入输出是什么, 组件间如何通讯.</li>
+</ul>
+<h2 id="方括号的使用"><a href="#方括号的使用" class="headerlink" title="方括号的使用:"></a>方括号的使用:</h2><ul>
+<li><p>组件通讯 - 输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;app-order [stockcode] = &quot;stock&quot; [amount] = &quot;100&quot;&gt;&lt;/app-order&gt;</div><div class="line">&lt;!--          子           父 --&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>属性绑定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 属性绑定 --&gt;</div><div class="line">&lt;img [src]=&quot;imgUrl&quot;&gt;</div><div class="line"> &lt;!-- 子    父 --&gt;</div><div class="line"></div><div class="line">&lt;!-- </div><div class="line">[ngclass] = &quot;&#123;...:...&#125;&quot; </div><div class="line">[ngclass] = &quot;expreesion&quot; </div><div class="line">[ngstyle] = &quot;&#123;&#125;&quot;</div><div class="line"> --&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="圆括号的使用"><a href="#圆括号的使用" class="headerlink" title="圆括号的使用:"></a>圆括号的使用:</h2><ul>
+<li>在父组件中传递事件<br>  <code>(toggle)=&quot;sidenav.toggle()&quot;&gt;</code></li>
+<li><p>事件绑定</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 表达式可以是方法 --&gt;</div><div class="line">&lt;button (click) = &quot;onclick($event)&quot;&gt; 点击按钮 &lt;/button&gt;</div><div class="line">&lt;!-- 表达式可以是属性赋值 --&gt;</div><div class="line">&lt;button (click) = &quot;saved = true&quot;&gt; 点击按钮 &lt;/button&gt;</div></pre></td></tr></table></figure>
+</li>
+<li></li>
+<li><h2 id="ng-cli-常用指令"><a href="#ng-cli-常用指令" class="headerlink" title="ng cli 常用指令"></a>ng cli 常用指令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">npm i --save #</div><div class="line">npm i --save dev</div><div class="line">ng new</div><div class="line">ng build -prod</div><div class="line">ng serve</div><div class="line"></div><div class="line"> 重装angular/cli</div><div class="line">npm uninstall -g @angular/cli</div><div class="line">npm cache clean</div><div class="line">npm install  -g @angular/cli</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="辅助记忆"><a href="#辅助记忆" class="headerlink" title="辅助记忆"></a>辅助记忆</h2><ul>
+<li>output - &gt; ()   使用output标记的变量常用语向外输出的圆括号中</li>
+<li>input  - &gt; []   使用input标记的变量常用语接受输入的方括号中</li>
+<li>双向绑定- &gt;[()]  盒子里放香蕉</li>
+<li></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/07/LowestCommonAncestor/" rel="next" title="Lowest Common Ancestor解题报告">
+                <i class="fa fa-chevron-left"></i> Lowest Common Ancestor解题报告
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/30/MarkDown-cheat-sheet/" rel="prev" title="MarkDown_cheat_sheet">
+                MarkDown_cheat_sheet <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="Peixuan Li" />
+          <p class="site-author-name" itemprop="name">Peixuan Li</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1"><span class="nav-number">1.</span> <span class="nav-text">Angular路由</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2"><span class="nav-number">2.</span> <span class="nav-text">Angular依赖注入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3"><span class="nav-number">3.</span> <span class="nav-text">Angular数据绑定,响应式编程和管道</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#插值表达式-和-属性绑定-是一回事"><span class="nav-number">3.1.</span> <span class="nav-text">插值表达式 和 属性绑定 是一回事</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件绑定"><span class="nav-number">3.2.</span> <span class="nav-text">事件绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Angular-通过绑定DOM属性和事件来工作"><span class="nav-number">3.3.</span> <span class="nav-text">Angular 通过绑定DOM属性和事件来工作.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML-属性绑定"><span class="nav-number">3.4.</span> <span class="nav-text">HTML 属性绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双向绑定使用"><span class="nav-number">3.5.</span> <span class="nav-text">双向绑定使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应式编程"><span class="nav-number">3.6.</span> <span class="nav-text">响应式编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管道"><span class="nav-number">3.7.</span> <span class="nav-text">管道</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4"><span class="nav-number">4.</span> <span class="nav-text">Angular组件间通讯</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#输入属性-父组件对象输出至子组件"><span class="nav-number">4.1.</span> <span class="nav-text">输入属性 (父组件对象输出至子组件)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出属性-子组件对象输出至父组件"><span class="nav-number">4.2.</span> <span class="nav-text">输出属性 (子组件对象输出至父组件)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中间人模式"><span class="nav-number">4.3.</span> <span class="nav-text">中间人模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在父组件中使用子组件的方法"><span class="nav-number">4.4.</span> <span class="nav-text">在父组件中使用子组件的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#投影"><span class="nav-number">4.5.</span> <span class="nav-text">投影</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件生命周期和钩子"><span class="nav-number">4.6.</span> <span class="nav-text">组件生命周期和钩子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#angular变化发现机制"><span class="nav-number">4.6.1.</span> <span class="nav-text">angular变化发现机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#view钩子"><span class="nav-number">4.6.2.</span> <span class="nav-text">view钩子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生命周期详解"><span class="nav-number">4.6.3.</span> <span class="nav-text">生命周期详解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5"><span class="nav-number">5.</span> <span class="nav-text">Angular表单处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#模板式表单"><span class="nav-number">5.1.</span> <span class="nav-text">模板式表单</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NgForm"><span class="nav-number">5.1.1.</span> <span class="nav-text">NgForm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NgModel"><span class="nav-number">5.1.2.</span> <span class="nav-text">NgModel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NgModelGroup"><span class="nav-number">5.1.3.</span> <span class="nav-text">NgModelGroup</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应式表单"><span class="nav-number">5.2.</span> <span class="nav-text">响应式表单</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用编码创建数据模型"><span class="nav-number">5.2.1.</span> <span class="nav-text">用编码创建数据模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用指令将html元素链接到数据模型上"><span class="nav-number">5.2.2.</span> <span class="nav-text">使用指令将html元素链接到数据模型上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#举例"><span class="nav-number">5.2.3.</span> <span class="nav-text">举例:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FormBuilder"><span class="nav-number">6.</span> <span class="nav-text">FormBuilder</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#表单验证"><span class="nav-number">6.1.</span> <span class="nav-text">表单验证</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6"><span class="nav-number">7.</span> <span class="nav-text">Angular与服务器通讯</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7"><span class="nav-number">8.</span> <span class="nav-text">Angular构建和部署</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8"><span class="nav-number">9.</span> <span class="nav-text">Angular其他相关小知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#在开发过程中-要先设计组件"><span class="nav-number">9.1.</span> <span class="nav-text">在开发过程中,要先设计组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方括号的使用"><span class="nav-number">9.2.</span> <span class="nav-text">方括号的使用:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#圆括号的使用"><span class="nav-number">9.3.</span> <span class="nav-text">圆括号的使用:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ng-cli-常用指令"><span class="nav-number">9.4.</span> <span class="nav-text">ng cli 常用指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#辅助记忆"><span class="nav-number">9.5.</span> <span class="nav-text">辅助记忆</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Peixuan Li</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
